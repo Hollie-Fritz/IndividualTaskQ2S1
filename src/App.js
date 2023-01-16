@@ -1,13 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import { Greet } from './components/Greet';
-// functional component
+import './App.css'
+import ClassCounter from './components/ClassCounter'
+
+
 function App() {
   return (
-    <div className="App">
-    <Greet />
-    </div>    
-  );
+    <div>
+  <ClassCounter />
+  </div>
+  )
 }
 
 export default App;

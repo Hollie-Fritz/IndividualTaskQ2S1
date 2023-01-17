@@ -1,5 +1,7 @@
 import React from 'react';
 import {UserContext, ChannelContext} from '../App';
+
+//step 3: consume the context value
 function ComponentF() {
     return (
         <div>

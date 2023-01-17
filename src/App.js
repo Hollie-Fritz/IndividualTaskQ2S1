@@ -6,6 +6,7 @@ import HookCounterOne from './components/HookCounterOne'
 function App() {
   return (
     <div className='App'>
+      {/* <ClassCounterOne/> */}
       <HookCounterOne/>
   </div>
   )

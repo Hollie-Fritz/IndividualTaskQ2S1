@@ -19,14 +19,14 @@ Don't call Hooks inside loops, conditions or nested functions
 Only call hooks from React functions
 
 **useState hook**
--useState allows you to add state to functional components
--state doesn't have to be an object
--when dealing with objects or arrays, always make sure to spread your state variable and then call the setter function
+- useState allows you to add state to functional components
+- state doesn't have to be an object
+- when dealing with objects or arrays, always make sure to spread your state variable and then call the setter function
 
 **useEffect**
--lets you perform side effects in functional components
--replacement for componentDidMount, componentDidUpdate, componentWillUnmount
--runs everytime the component renders
+- lets you perform side effects in functional components
+- replacement for componentDidMount, componentDidUpdate, componentWillUnmount
+- runs everytime the component renders
 
 1. import useEffect
 2. call it within the component
@@ -44,19 +44,19 @@ when you want to execute some component cleanup code, you include it in the func
 
 
 **useReducer**
--hook that is used for state management
--useState is built using useReducer
--useReducer(reducer, initialState)
--newState = reducer(currentState, action)
--useReducer - returns a pair of values - [newState, dispatch]
--using action as an object you can use additional data in the reducer function
--using state as an object you can keep track of multiple state values
--multiple state variables that have the same state transitions it's good to have multiple use reducers making use of the same reducer function to avoid the complexity of merging a state or having duplicate code
+- hook that is used for state management
+- useState is built using useReducer
+- useReducer(reducer, initialState)
+- newState = reducer(currentState, action)
+- useReducer - returns a pair of values - [newState, dispatch]
+- using action as an object you can use additional data in the reducer function
+- using state as an object you can keep track of multiple state values
+- multiple state variables that have the same state transitions it's good to have multiple use reducers making use of the same reducer function to avoid the complexity of merging a state or having duplicate code
 
 
 **useReducer with useContext**
--able to share values
--maintaining the state in App.js but able to share that state with the different components nested at different levels in the component tree
+- able to share values
+- maintaining the state in App.js but able to share that state with the different components nested at different levels in the component tree
 
 
 **useState**

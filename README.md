@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+components - describe a part of the UI, reusable and can be nested
+	functional components
+	class components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+functional components - javascript function, can optionally recieve props (properties)
 
-## Available Scripts
 
-In the project directory, you can run:
+Hooks - lets you use state and other React features w/o writng a class, don't work inside classes, allows you to reuse stateful component logic
 
-### `npm start`
+useState Hook
+1. Import state
+2. Call it, passing in a default value
+3. Assign the return pair of values to variables using RDD structuring
+4. Use them in the render function
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Rules of Hooks:
+Only call Hooks at the top level
+Don't call Hooks inside loops, conditions or nested functions
+Only call hooks from React functions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+useState hook
+-useState allows you to add state to functional components
+-state doesn't have to be an object
+-when dealing with objects or arrays, always make sure to spread your state variable and then call the setter function
 
-### `npm test`
+useEffect
+-lets you perform side effects in functional components
+-replacement for componentDidMount, componentDidUpdate, componentWillUnmount
+-runs everytime the component renders
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. import useEffect
+2. call it within the component
+3. pass in function which needs to be executed after every render of the component
 
-### `npm run build`
+conditionally run an effect - use the second parameter of useEffect (array)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+when you want to execute some component cleanup code, you include it in the function and return that function from the function passed to useEffect
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+useContext hook:
+1. create context
+2. provide context value
+3. import the context and import useContext
+4. assign the useContext to a variable
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+useReducer
+-hook that is used for state management
+-useState is built using useReducer
+-useReducer(reducer, initialState)
+-newState = reducer(currentState, action)
+-useReducer - returns a pair of values - [newState, dispatch]
+-using action as an object you can use additional data in the reducer function
+-using state as an object you can keep track of multiple state values
+-multiple state variables that have the same state transitions it's good to have multiple use reducers making use of the same reducer function to avoid the complexity of merging a state or having duplicate code
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+useReducer with useContext
+-able to share values
+-maintaining the state in App.js but able to share that state with the different components nested at different levels in the component tree
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+useState 
+- manage primitive types (ex: number, string, boolean)
+- only one or two state transitions
+- unrelated state transitions
+- no business logic
+- local component state, multiple dispatch update functions
 
-## Learn More
+useReducer 
+- manage object or array (ex: {fname, lname, age})
+- three or more state transitions
+- related state transitions
+- complex business logic (complex data transformation) 
+- global component state, only one dispatch needed
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+useCallback
+- return a memoized version of the callback function that only changes if one of the dependencies has changed
+- useful when passing callbacks
+- optimize child components to prevent unnecessary renders
+- useCallback when you need to cache a function
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+useMemo
+- caches the result of a invoked function
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+useRef
+- imperatively access dom nodes in react functional components
+- remembers the stored data after other state variables cause a rerender of the component
